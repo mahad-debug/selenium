@@ -4,8 +4,7 @@
   "description": "",
   "main": "linkedin-follow-widget.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "babel src -d dist"
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
