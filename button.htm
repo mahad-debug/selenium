@@ -1,10 +1,134 @@
 <!DOCTYPE html>
 <html>
+<head>
+<title>LinkedIn Follow Button</title>
+</head>
+<body>
+<!-- <button id="follow-button">Follow Company</button> -->
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<div
+class="LI-profile-badge"
+data-version="v1"
+data-size="medium"
+data-locale="en_US"
+data-type="horizontal"
+data-theme="light"
+data-vanity="follow-button"
+>
+<a
+class="LI-simple-link"
+href="https://www.linkedin.com/company/nestle-s-a-"
+>Follow Button</a
+>
+</div>
+
+<script>
+window.onload = async function () {
+console.log("On load event trigger");
+
+await axios
+
+.get("http://localhost:3000/api/follow-company")
+.then((response) => {
+console.log("GET request successful");
+console.log(response.data); // Handle the response from the server
+})
+.catch((error) => {
+console.error("GET request failed:", error);
+});
+};
+</script>
+</body>
+</html>
+
+<!-- 
+<html>
+<head>
+  <title>LinkedIn Auto Follow - Selenium</title>
+</head>
+
+<body>
+
+
+<script src="https://platform.linkedin.com/badges/js/profile.js"></script>
+
+<div class="LI-profile-badge" data-vanity="nestle"></div>
+
+
+<script src="selenium-webdriver/index.js"></script>
+
+<script>
+
+// Import Selenium 
+const {Builder, By, Key, until} = require('selenium-webdriver');
+
+// Launch browser  
+const driver = new Builder().forBrowser('chrome').build();
+
+// Track status
+let followed = false;
+
+// Define function 
+async function automateFollow() {
+
+  let button = await driver.findElement(By.css('.LI-simple-link'));
+  
+  if (button && !followed) {
+    await button.click();
+    followed = true;
+    console.log('Followed!');
+  }
+
+}
+
+// Call on load
+window.onload = async () => {
+  await automateFollow();
+}
+
+// Check periodically
+setInterval(automateFollow, 5000);
+
+</script>
+
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>LinkedIn Follow Button</title>
+</head>
+<body>
+  <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+  <div class="LI-profile-badge" data-version="v1" data-size="medium" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="follow-button">
+    <a class="LI-simple-link" href='https://www.linkedin.com/company/nestle-s-a-'>Follow Button</a>
+  </div>
+  <script>
+    // Function to automate clicking the LinkedIn follow button
+    function automateLinkedInFollow() {
+      const button = document.querySelector('.LI-simple-link');
+      if (button) {
+        button.click(".follow");
+      } else {
+        console.log("LinkedIn follow button not found.");
+      }
+    }
+
+    // Automatically click the button when the page loads
+    window.addEventListener('load', automateLinkedInFollow);
+  </script>
+</body>
+</html> -->
+
+<!-- <!DOCTYPE html>
+<html>
   <head>
     <title>LinkedIn Follow Button</title>
   </head>
   <body>
-    <!-- <button id="follow-button">Follow Company</button> -->
+    <<button id="follow-button">Follow Company</button>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -41,7 +165,7 @@
       };
     </script>
   </body>
-</html>
+</html> -->
 
 <!-- <!DOCTYPE html>
 <html>
@@ -173,8 +297,8 @@
     window.addEventListener('load', automateLinkedInFollow);
   </script>
 </body>
-</html>
- -->
+</html> -->
+
 <!-- <!DOCTYPE html>
 <html>
 <head>
